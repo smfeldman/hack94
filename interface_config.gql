@@ -1,5 +1,5 @@
-query DeviceQuery($name: String!) {
-  InfraInterfaceL2L3(device__name__value: $name) {
+query DeviceQuery($device: String!) {
+  InfraInterfaceL2L3(device__name__value: $device) {
     edges {
       node {
         name { value }

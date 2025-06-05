@@ -1,6 +1,20 @@
 {% if data.InfraInterfaceL2L3.edges and data.InfraInterfaceL2L3.edges is iterable %}
-{% for interface in data["NetworkDevice"]["edges"] %}
+{% for interface in data["InfraInterfaceL2L3"]["edges"] %}
 {% set interface_name = interface.node.name.value %}
+{% if interface.node.ip_addresses.edges and interface.node.ip_addresses.edges is iterable %}
 interface {{ interface_name }}
+{% if "Ethernet" in interface_name %}
+   no switchport
+{% endif %}
+{% for addr in interface["node"]["ip_addresses"]["edges"] %}
+{% set address = addr.node.address.value %}
+{% if ':' in address %}
+ ipv6 address {{ address }}
+{% else %}
+ ip address {{ address }}
+{% endif %}
+{% endfor %}
+!
+{% endif %}
 {% endfor %}
 {% endif %}

@@ -1,0 +1,19 @@
+query DeviceQuery($name: String!) {
+  InfraInterfaceL2L3(device__name__value: $name) {
+    edges {
+      node {
+        name { value }
+        description { value }
+        ip_addresses {
+          edges {
+            node {
+              address {
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

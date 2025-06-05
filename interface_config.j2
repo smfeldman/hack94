@@ -1,0 +1,6 @@
+{% if data.InfraInterfaceL2L3.edges and data.InfraInterfaceL2L3.edges is iterable %}
+{% for interface in data["NetworkDevice"]["edges"] %}
+{% set interface_name = interface.node.name.value %}
+interface {{ interface_name }}
+{% endfor %}
+{% endif %}

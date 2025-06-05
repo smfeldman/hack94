@@ -10,10 +10,10 @@ queries:
     file_path: "interface_config.gql"            # Path to the main Jinja2 template
 
 artifact_definitions:
-  - name: "device_configuration"
-    artifact_name: "Device configuration file"
+  - name: "Interface configuration file"
+    artifact_name: "interface_configuration"
     parameters:
-      name: "device__value"
+      device: "name__value"
     content_type: "text/plain"
     targets: "Leaf nodes"
     transformation: "interface_config_transform"

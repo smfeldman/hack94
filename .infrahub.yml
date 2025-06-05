@@ -13,7 +13,7 @@ artifact_definitions:
   - name: "device_configuration"
     artifact_name: "Device configuration file"
     parameters:
-      name: "name__value"
+      name: "device__value"
     content_type: "text/plain"
     targets: "Leaf nodes"
     transformation: "interface_config_transform"

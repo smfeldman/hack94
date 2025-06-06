@@ -9,9 +9,9 @@ interface {{ interface_name }}
 {% for addr in interface["node"]["ip_addresses"]["edges"] %}
 {% set address = addr.node.address.value %}
 {% if ':' in address %}
- ipv6 address {{ address }}
+   ipv6 address {{ address }}
 {% else %}
- ip address {{ address }}
+   ip address {{ address }}
 {% endif %}
 {% endfor %}
 !
